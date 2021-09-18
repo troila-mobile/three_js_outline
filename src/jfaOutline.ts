@@ -7,6 +7,7 @@ import {
   MeshBasicMaterial,
   Scene,
   Camera,
+  Color
 } from "three";
 import { FullScreenPass, fullScreenPass } from "./fullScreenPass";
 
@@ -194,7 +195,7 @@ export class JFAOutline {
    * @param selectedLayer The layer for selected objects.
    */
   public renderSelected(renderer: WebGLRenderer, scene: Scene, camera: Camera, targets: WebGLRenderTarget[], selectedLayer: number) {
-    const oldClearColor = renderer.getClearColor().getHex();
+    const oldClearColor = renderer.getClearColor(new Color()).getHex();
     const oldOverrideMaterial = scene.overrideMaterial;
     renderer.setClearColor(0x0);
     scene.overrideMaterial = this.selectedMaterial;
